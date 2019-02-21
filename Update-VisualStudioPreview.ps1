@@ -28,7 +28,7 @@ Function UpdateVS
 
       $InstallPath = &"C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe" -latest -prerelease -property installationPath
       
-      $InstallPath = `"$InstallPath`"
+      $InstallPath = "`"$InstallPath`""
 
       Write-Host -Object "Found installation at $InstallPath"
 
