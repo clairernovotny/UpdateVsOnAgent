@@ -28,9 +28,11 @@ Function UpdateVS
 
       $InstallPath = &"C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe" -latest -prerelease -property installationPath
       
-      Write-Host -Object "Found installation at '$InstallPath'"
+      $InstallPath = `"$InstallPath`"
 
-      $Arguments = ('/c', $FilePath, 'update', '--passive', '--norestart', '--wait', '--installPath', '`"$InstallPath`"' )
+      Write-Host -Object "Found installation at $InstallPath"
+
+      $Arguments = ('/c', $FilePath, 'update', '--passive', '--norestart', '--wait', '--installPath', $InstallPath )
 
       Write-Host "Updating the Visual Studio ..."
       $process = Start-Process -FilePath cmd.exe -ArgumentList $Arguments -Wait -PassThru
