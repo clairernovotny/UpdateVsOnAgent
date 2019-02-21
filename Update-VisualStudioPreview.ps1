@@ -30,7 +30,7 @@ Function UpdateVS
       
       Write-Host -Object "Found installation at '$InstallPath'"
 
-      $Arguments = ('/c', $FilePath, 'update', '--passive', '--quiet', '--norestart', '--wait', '--installPath', '`"$InstallPath`"' )
+      $Arguments = ('/c', $FilePath, 'update', '--passive', '--norestart', '--wait', '--installPath', '`"$InstallPath`"' )
 
       Write-Host "Updating the Visual Studio ..."
       $process = Start-Process -FilePath cmd.exe -ArgumentList $Arguments -Wait -PassThru
