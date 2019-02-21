@@ -26,8 +26,10 @@ Function UpdateVS
     {
       Write-Host -Object 'Visual Studio Updater update successful'
 
-      $InstallPath = "C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview"
-            
+      $InstallPath = &"C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe -latest -prerelease -property installationPath" 
+      
+      Write-Host "Found installation at '$InstallPath'"
+      
       $Arguments = ('/c', $FilePath, 'update', '--passive', '--quiet', '--norestart', '--wait', '--installPath', $InstallPath )
 
       Write-Host "Updating the Visual Studio ..."
